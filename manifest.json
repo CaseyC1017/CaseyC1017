@@ -1,0 +1,45 @@
+{
+    "name": "Calulator",
+    "short_name":"Calulator",
+    "description":"Web Appplication Tecj Jokes",
+    "start_url":"http://127.0.0.1:5500/calculat.html",
+    "theme_color": "#ff4500",
+    "background_color":"#ffdab9",
+    "display" : "minimal-ui",
+    "icons": [
+        {
+            "src": "icons/Calculator_icon32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Calculator_icon62.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Calculator_icon128.png",
+            "sizes": "128x128",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Calculator_icon256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Calculator_icon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Calculator_icon1024.png",
+            "sizes": "1024x1024",
+            "type": "image/png",
+            "purpose": "any maskable"
+            
+        }
+    ]
+
+    
+}

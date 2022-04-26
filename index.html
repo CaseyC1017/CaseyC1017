@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0-ui"/>  
+  <meta name="theme-color" content="#317EFB">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="icons/Calculator_icon128.svg">
+    <meta name="theme-color" content="#317EFB">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        td {
+            font-size: 2em;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+        }
+        caption{
+             font-size: 2em;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <table border=1>
+       <caption>WEB 151 Calculator</caption>
+        <tr>
+            <td style="text-align: right;" colspan=4 id=top></td>
+        </tr>
+        <tr>
+            <td style="text-align: right;" colspan=4 id=bottom></td>
+        </tr>
+        <tr>
+            <td onclick="go(7)" ;> </td>
+            <td onclick="go(8)" ;> </td>
+            <td onclick="go(9)" ;> </td>
+            <td>/</td>
+        </tr>
+        <tr>
+            <td onclick="go(7)" ;>7</td>
+            <td onclick="go(8)" ;>8</td>
+            <td onclick="go(9)" ;>9</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td onclick="go(4)" ;>4</td>
+            <td onclick="go(5)" ;>5</td>
+            <td onclick="go(6)" ;>6</td>
+            <td onclick="sub()" ;>-</td>
+        </tr>
+        <tr>
+            <td onclick="go(1)" ;>1</td>
+            <td onclick="go(2)" ;>2</td>
+            <td onclick="go(3)" ;>3</td>
+            <td onclick="add()" ;>+</td>
+        </tr>
+        <tr>
+            <td style="font-size:1.3em;" onclick="clr()" ;>clr</td>
+            <td onclick="go(0)" ;>0</td>
+            <td onclick="go('.')" ;>.</td>
+            <td onclick="equal()" ;>=</td>
+        </tr>
+
+
+    </table>
+    <script>
+        if ('serviceWorker' in navigator) {
+navigator.serviceWorker.register('./sw.js').then(reg => {
+console.log('Successfully registered');
+}).catch(err => {
+ console.log('Error while registering SW')
+ });
+}
+
+
+
+
+        let aNumber = "";
+        let bNumber = ""
+        let answer;
+        let code = "";
+        window.addEventListener('load', clr);
+
+        function go(number) {
+            if (code == "") {
+                aNumber = aNumber + number;
+                document.getElementById('top').innerHTML = aNumber;
+                document.getElementById('bottom').innerHTML = "0";
+            }
+            if (code == "+") {
+                bNumber = bNumber + number;
+                document.getElementById('bottom').innerHTML = bNumber;
+               
+            }
+            if (code == "-") {
+                bNumber = bNumber - number;
+                document.getElementById('bottom').innerHTML = bNumber;
+            }
+        }
+
+        function add() {
+            document.getElementById('top').innerHTML = aNumber;
+            code = "+";
+        }
+
+        function equal() {
+            answer = aNumber * 1 + bNumber * 1;
+            document.getElementById('bottom').innerHTML = answer;
+            aNumber = "";
+            bNumber = "";
+            document.getElementById('top').innerHTML = "0";
+            code = "";
+
+        }
+
+        function clr() {
+            aNumber = "";
+            bNumber = ""
+            answer;
+            code = "";
+            document.getElementById('bottom').innerHTML = "0";
+            document.getElementById('top').innerHTML = "0";
+
+        }
+
+        function sub() {
+            document.getElementById('top').innerHTML = aNumber;
+            code = "-";
+        }
+        
+    </script>
+
+</body></html>
